@@ -44,3 +44,8 @@ for (var i = 0; i < 10; i++) {
         var result = conflict(section1, section2);
         console.log("Test", {s1: section1, s2: section2, conflict: result});
 }
+
+var foundpaths = [];
+console.log("Running...");
+findSchedules([], {classIdx: 0, sectionIdx: 0}, classList, foundpaths);
+console.log("foundpaths", foundpaths);
