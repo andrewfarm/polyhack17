@@ -1,10 +1,10 @@
 //Turns the initial JSON into a better json
 
-function mutate (var jsonObj) {
+function mutate (jsonObj) {
   var total = [];
-  for (var clLong of jsonObj.sections) {
+  for (var clSection of jsonObj.searchResults) {
     var cl = {
-      
+
     };
     total.push(cl);
   }
