@@ -129,6 +129,8 @@
       <input id="search5" type="text" class="searchTerm" placeholder="Fifth Class">
 
    </div>
+
+<button type="button" onclick="find()">Find your schedules</button>
 </div>
 
 </div>
@@ -138,6 +140,7 @@
 <script src="classes2017f.js"></script>
 <script src="saje.js"></script>
 <script src="mutate.js"></script>
+<script src="skyeFilter.js"></script>
 <script type="text/javascript">
         var classList = sortClasses(mutate(classesLong));
         var courseNames = [];
@@ -147,6 +150,33 @@
         $(".searchTerm").autocomplete({
                 source: courseNames
         });
+        
+        function findClassByName(name) {
+                for (var course of classList) {
+                        if (course.courseTitle === name) {
+                                return course;
+                        }
+                }
+                return null;
+        }
+        
+        function find() {
+                var foundpaths = [];
+                var classesToSchedule = [];
+                for (var i = 1; i <= 5; i++) {
+                        var course = findClassByName($("#search" + i).val());
+                        if (course) {
+                                classesToSchedule.push(course);
+                        }
+                }
+                console.log("Classes to schedule", classesToSchedule);
+                console.log("Running...");
+                for (var s of classesToSchedule[0].sections) {
+                        findSchedules([], s, 0, classesToSchedule, foundpaths);
+                }
+                console.log("Done.");
+                console.log("foundpaths", foundpaths);
+        }
 </script>
 
 </body>
