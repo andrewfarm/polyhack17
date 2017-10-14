@@ -23,8 +23,8 @@ table {
         margin-bottom: 50px;
 }
 table thead tr th {
-        background: #626E7E;
-        color: #d1d5db;
+        background: #3E8EDE;
+        color: #ecf4fc;
         padding: 0.5em;
         overflow: hidden;
 }
@@ -45,8 +45,8 @@ table thead tr th .day {
         line-height: 1.8;
 }
 table thead tr th .day.active {
-        background: #d1d5db;
-        color: #626E7E;
+        background: #ecf4fc;
+        color: #3E8EDE;
 }
 table thead tr th .short {
         display: none;
@@ -56,31 +56,32 @@ table thead tr th i {
         font-size: 2em;
 }
 table tbody tr {
-        background: #d1d5db;
+        background: #ecf4fc;
 }
 table tbody tr:nth-child(odd) {
-        background: #c8cdd4;
+        background: #dfecfa;
 }
 table tbody tr:nth-child(4n+0) td {
-        border-bottom: 1px solid #626E7E;
+        border-bottom: 1px solid #3E8EDE;
 }
 table tbody tr td {
         text-align: center;
         vertical-align: middle;
-        border-left: 1px solid #626E7E;
+        border-left: 1px solid #3E8EDE;
         position: relative;
         height: 32px;
         cursor: pointer;
 }
 table tbody tr td:last-child {
-        border-right: 1px solid #626E7E;
+        border-right: 1px solid #3E8EDE;
 }
 table tbody tr td.hour {
         font-size: 2em;
         padding: 0;
-        color: #626E7E;
+/*        color: #3E8EDE;*/
+        color: #8B4513;
         background: #fff;
-        border-bottom: 1px solid #626E7E;
+        border-bottom: 1px solid #3E8EDE;
         border-collapse: separate;
         min-width: 100px;
         cursor: default;
@@ -115,8 +116,8 @@ table tbody tr td.hour span {
                 padding: 5px;
         }
         table thead tr th .day.active {
-                background: #d1d5db;
-                color: #626E7E;
+                background: #ecf4fc;
+                color: #3E8EDE;
         }
         table tbody tr td.hour {
                 font-size: 1.7em;
