@@ -5,7 +5,8 @@ function mutate (jsonObj) {
   for (var clResult of jsonObj.searchResults) {
     for (var clSection of clResult.sections) {
       var fullCourse = {
-        courseTitle: clResult.course_title + " " + clSection.comp_desc,
+        courseTitle: clResult.course_num + ": " + clResult.course_title +
+              " " + clSection.comp_desc,
         courseNum:   clResult.course_num,
         sections:    []
       };
