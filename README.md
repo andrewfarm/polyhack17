@@ -9,16 +9,17 @@ everything:
     courseNum:   String,
     courseTitle: String,
 
-    section:
+    sections:
     [
       {
         instructor: String,
         type:       String,
         schedules:
         [
-          day:      String,
-          start:    Int,
-          end:      Int
+          day: {
+            start:    Int,
+            end:      Int
+          }
         ]
       }
     ]
