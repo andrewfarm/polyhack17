@@ -1,0 +1,135 @@
+<head>
+	<title>SAJE Schedule Compiler</title>
+	<style>/*CSS portion*/
+        
+    body{
+        text-align: center;
+        font-size: 14px;
+        font-family: Arial;
+    }
+    
+
+.searchbox {
+  width: 30%;
+  position: relative;
+  display: inline-block;
+  float:left;
+
+}
+
+#search1{
+    display:inline-block;
+      position: relative;
+      float:left;
+      padding:20px;
+     
+}
+
+#search2{
+    display:inline-block;
+      position: relative;
+      padding:20px;
+      float:left;
+      
+}
+
+#search3{
+    display:inline-block;
+    position: relative;
+       padding:20px;
+       float:left;
+  
+}
+
+#search4{
+    display:inline-block;
+    position: relative;
+       padding:20px;
+       float:left;
+
+}
+
+#search5{
+    display:inline-block;
+    position: relative;
+    float:left;
+    padding:20px;
+
+}
+
+.searchTerm {
+  float: center;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  padding: 15px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  background-color: #dfe9eb;
+}
+
+/*Resize the wrap to see the search bar change!
+.wrap{
+  width: 50%;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        /*end CSS portion*/
+    </style>
+</head>
+<body>
+	<p></p>
+	<p><p>Please input your desired classes, one in each box.</p>
+	
+	
+	<div class="wrap">   <div class="searchbox"><div id ="search1">
+      <input type="text" class="searchTerm" placeholder="First Class">
+</div>
+  
+ 
+
+<div id="search2">
+
+      <input type="text" class="searchTerm" placeholder="Second Class">
+</div>
+
+   
+<div id="search3">
+
+      <input type="text" class="searchTerm" placeholder="Third Class">
+
+   </div>
+   
+<div id="search4">
+
+      <input type="text" class="searchTerm" placeholder="Fourth Class">
+
+   </div>
+
+<div id="search5">
+
+      <input type="text" class="searchTerm" placeholder="Fifth Class">
+
+   </div>
+</div>
+
+</div>
+
+
+
+</body>
