@@ -19,7 +19,8 @@ var sortClasses = function(classList) {
 console.log("sorted classes", sortClasses(classList));
 
 var timesConflict = function(time1, time2) {
-        return (time1.start < time2.end) || (time2.start < time1.end);
+        return ((time1.start > time2.start) && (time1.start < time2.end)) ||
+               ((time1.start < time2.start) && (time2.start < time1.end));
 };
 
 var conflict = function(section1, section2) {
@@ -47,5 +48,10 @@ for (var i = 0; i < 10; i++) {
 
 var foundpaths = [];
 console.log("Running...");
-findSchedules([], {classIdx: 0, sectionIdx: 0}, classList, foundpaths);
+var classesToSchedule = [
+         classList[5], classList[95], classList[600], classList[1240]
+];
+findSchedules([], classesToSchedule[0].sections[0], 0, classesToSchedule,
+      foundpaths);
+console.log("Done.");
 console.log("foundpaths", foundpaths);

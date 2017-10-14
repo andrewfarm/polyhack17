@@ -11,14 +11,18 @@ function findSchedules(path, curr, iteration, classList, foundpaths) {
   }
   //Otherwise you do work
   else {
-    for (s in classList[iteration]) {
-      if (!conflict(s, curr) &&
-          path.every(function pathTestConf (element) {
+    for (var s of classList[iteration + 1].sections) {
+      if (!conflict(curr, s) &&
+          path.every(function (element) {
+                     console.log("Checking:");
+                     console.log("element", element);
+                     console.log("s", s);
+                     console.log("!conflict(element, s)", !conflict(element, s));
             return (!conflict(element, s));
           })) {
             path.push(curr);
             findSchedules(path, s, iteration + 1, classList, foundpaths);
-          }
+      }
     }
   }
 }
