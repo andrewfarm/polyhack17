@@ -8,16 +8,16 @@ function mutate (jsonObj) {
       courseNum:   clResult.course_num,
       section:     []   };
     for (var clSection of clResult.sections) {
-      for (var clComponent of clSection) {
-        for (var clLocation of clComponent) {
+      for (var clComponent of clSection.components) {
+        for (var clLocation of clComponent.locations) {
           var course = {
             instructor: clLocation.instructor,
             schedules:  []   };
           //Add the schedules to the course
-          for (var clMeetings of clLocation) {
+          for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
             var clEnd   = clMeetings.meet_end_min;
-            for (var clDay of clMeetings) {
+            for (var clDay of clMeetings.days) {
               var sched = {
                 day:   clDay,
                 start: clStart,
