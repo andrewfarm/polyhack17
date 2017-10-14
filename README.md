@@ -8,15 +8,17 @@ everything:
   [
     course_num:   String,
     course_title: String,
-    course:
-    {
-      instructor: String,
-      sections: 
-      [
-        day:      String,
-        start:    Int,
-        end:      Int
-      ]
-    }
+    section:
+    [
+      {
+        instructor: String,
+        schedules:
+        [
+          day:      String,
+          start:    Int,
+          end:      Int
+        ]
+      }
+    ]
   ]
 ]
