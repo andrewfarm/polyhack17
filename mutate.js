@@ -12,12 +12,11 @@ function mutate (jsonObj) {
       for (var clComponent of clSection.components) {
         //THIS IS THE CUTOFF FOR A COURSE
         var course = {
-          instructor: ""
+          instructor: "",
           schedules:  []
         };
         for (var clLocation of clComponent.locations) {
-          course.instructor.concat(clLocation.instructor);
-          course.instructor.concat(" | ");
+          course.instructor += (clLocation.instructor + " | ");
           for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
             var clEnd   = clMeetings.meet_end_min;
@@ -31,7 +30,6 @@ function mutate (jsonObj) {
               course.schedules.push(sched);
             }
           }
-          //Push the course to the sections
         }
         fullCourse.sections.push(course);
       }
