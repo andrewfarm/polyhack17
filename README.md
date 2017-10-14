@@ -8,10 +8,12 @@ everything:
   [
     courseNum:   String,
     courseTitle: String,
+
     section:
     [
       {
         instructor: String,
+        type:       String,
         schedules:
         [
           day:      String,

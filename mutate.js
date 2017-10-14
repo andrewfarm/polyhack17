@@ -10,16 +10,17 @@ function mutate (jsonObj) {
     };
     for (var clSection of clResult.sections) {
       for (var clComponent of clSection.components) {
-        //THIS IS THE CUTOFF FOR A COURSE
-        var course = {
+        //THIS IS THE CUTOFF FOR A SECTION
+        var section = {
           instructor: "",
+          type: clSection.comp_desc,
           schedules:  []
         };
         for (var clLocation of clComponent.locations) {
-          if(course.instructor === "")
-            course.instructor += clLocation.instructor;
+          if(section.instructor === "")
+            section.instructor += clLocation.instructor;
           else
-            course.instructor += (" | " + clLocation.instructor);
+            section.instructor += (" | " + clLocation.instructor);
           for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
             var clEnd   = clMeetings.meet_end_min;
@@ -29,11 +30,11 @@ function mutate (jsonObj) {
                 start: clStart,
                 end:   clEnd
               };
-              course.schedules.push(sched);
+              section.schedules.push(sched);
             }
           }
         }
-        fullCourse.sections.push(course);
+        fullCourse.sections.push(section);
       }
     }
     total.push(fullCourse);
