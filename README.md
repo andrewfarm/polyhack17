@@ -15,12 +15,16 @@ everything:
         instructor: String,
         type:       String,
         schedules:
-        [
-          day: {
+        {
+          day1: {
             start:    Int,
             end:      Int
           }
-        ]
+          day2: {
+            start:    Int,
+            end:      Int
+          } ...
+        }  
       }
     ]
   ]
