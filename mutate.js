@@ -6,13 +6,15 @@ function mutate (jsonObj) {
     var fullCourse = {
       courseTitle: clResult.course_title,
       courseNum:   clResult.course_num,
-      sections:     []   };
+      sections:    []
+    };
     for (var clSection of clResult.sections) {
       for (var clComponent of clSection.components) {
         for (var clLocation of clComponent.locations) {
           var course = {
             instructor: clLocation.instructor,
-            schedules:  []   };
+            schedules:  []
+          };
           //Add the schedules to the course
           for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
@@ -21,7 +23,8 @@ function mutate (jsonObj) {
               var sched = {
                 day:   clDay,
                 start: clStart,
-                end:   clEnd   };
+                end:   clEnd
+              };
               //Push the schedule
               course.schedules.push(sched);
             }
