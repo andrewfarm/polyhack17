@@ -20,7 +20,7 @@
                                 </th>
                                 <th>
                                         <span class="day">3</span>
-                                        <span class="long">Wendsday</span>
+                                        <span class="long">Wednesday</span>
                                         <span class="short">We</span>
                                 </th>
                                 <th>
@@ -271,4 +271,16 @@
                         </tr>
                 </tbody>
         </table>
+        <script src="jquery-3.1.0.min.js"></script>
+        <script type="text/javascript">
+                var init = function() {
+                        var urlParams = new URLSearchParams(window.location.search);
+                        var s = urlParams.get("s");
+                        if (s == null) return;
+                        var schedule = JSON.parse(s);
+                        console.log("schedule", schedule);
+                };
+        
+                $(document).ready(init);
+        </script>
 </body>

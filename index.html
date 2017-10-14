@@ -141,6 +141,7 @@
 <script src="saje.js"></script>
 <script src="mutate.js"></script>
 <script src="skyeFilter.js"></script>
+<script src="cycle.js"></script>
 <script type="text/javascript">
         var classList = sortClasses(mutate(classesLong));
         var courseNames = [];
@@ -159,9 +160,10 @@
                 }
                 return null;
         }
+
+        var foundpaths = [];
         
         function find() {
-                var foundpaths = [];
                 var classesToSchedule = [];
                 for (var i = 1; i <= 5; i++) {
                         var course = findClassByName($("#search" + i).val());
@@ -171,11 +173,29 @@
                 }
                 console.log("Classes to schedule", classesToSchedule);
                 console.log("Running...");
-                for (var s of classesToSchedule[0].sections) {
-                        findSchedules([], s, 0, classesToSchedule, foundpaths);
+                if (classesToSchedule.length > 0) {
+                        for (var s of classesToSchedule[0].sections) {
+                                findSchedules([], s, 0, classesToSchedule, foundpaths);
+                        }
                 }
                 console.log("Done.");
                 console.log("foundpaths", foundpaths);
+                
+                $("link").remove();
+                $("style").remove();
+                $("body").html("<ul id=\"sched-list\"></ul>");
+                for (var i = 1; i <= foundpaths.length; i++) {
+                        $("#sched-list").append(
+                                "<li onclick=\"displaySchedule(" + i +
+                                ")\">Schedule " + i + "</li>");
+                }
+        }
+
+        function displaySchedule(i) {
+                var schedule = foundpaths[i - 1];
+                console.log("schedule selected", schedule);
+                window.location = "schedule.html?s=" + encodeURIComponent(
+                        JSON.stringify(JSON.decycle(schedule)));
         }
 </script>
 
