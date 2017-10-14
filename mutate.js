@@ -10,12 +10,14 @@ function mutate (jsonObj) {
     };
     for (var clSection of clResult.sections) {
       for (var clComponent of clSection.components) {
+        //THIS IS THE CUTOFF FOR A COURSE
+        var course = {
+          instructor: ""
+          schedules:  []
+        };
         for (var clLocation of clComponent.locations) {
-          var course = {
-            instructor: clLocation.instructor,
-            schedules:  []
-          };
-          //Add the schedules to the course
+          course.instructor.concat(clLocation.instructor);
+          course.instructor.concat(" | ");
           for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
             var clEnd   = clMeetings.meet_end_min;
@@ -30,8 +32,8 @@ function mutate (jsonObj) {
             }
           }
           //Push the course to the sections
-          fullCourse.sections.push(course);
         }
+        fullCourse.sections.push(course);
       }
     }
     //Push it
