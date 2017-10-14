@@ -29,7 +29,6 @@ function mutate (jsonObj) {
                 start: clStart,
                 end:   clEnd
               };
-              //Push the schedule
               course.schedules.push(sched);
             }
           }
@@ -37,8 +36,9 @@ function mutate (jsonObj) {
         fullCourse.sections.push(course);
       }
     }
-    //Push it
     total.push(fullCourse);
   }
   return total;
 }
+
+//Comments are for pussies
