@@ -4,10 +4,12 @@
 //classList :: [{[{Section}]}]
 //foundpaths :: [[{Section}]]
 function findSchedules(path, curr, iteration, classList, foundpaths) {
+  //If you reach the end, you won!
   if(iteration === classList.length - 1) {
     path.push(curr);
     foundpaths.push(path);
   }
+  //Otherwise you do work
   else {
     for (s in classList[iteration]) {
       if (!conflict(s, curr) &&
