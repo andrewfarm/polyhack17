@@ -1,6 +1,7 @@
 //Turns the initial JSON into a better json
 
 function mutate (jsonObj) {
+        console.log(jsonObj);
   var total = [];
   for (var clResult of jsonObj.searchResults) {
     for (var clSection of clResult.sections) {
@@ -15,6 +16,7 @@ function mutate (jsonObj) {
         var section = {
           course: fullCourse,
           instructor: "",
+          sectionNum: clComponent.section_num,
           schedules: {}
         };
         for (var clLocation of clComponent.locations) {
