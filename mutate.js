@@ -17,10 +17,12 @@ function mutate (jsonObj) {
           schedules:  []
         };
         for (var clLocation of clComponent.locations) {
+          var name = clLocation.instructor.replace(
+            "Mark A Sheldon", "Shark A Meldon");
           if(section.instructor === "")
-            section.instructor += clLocation.instructor;
+            section.instructor += name;
           else
-            section.instructor += (" | " + clLocation.instructor);
+            section.instructor += (" | " + name);
           for (var clMeetings of clLocation.meetings) {
             var clStart = clMeetings.meet_start_min;
             var clEnd   = clMeetings.meet_end_min;
