@@ -14,10 +14,14 @@ function findSchedules(path, curr, classList, foundpaths) {
     foundpaths.push(path);
   }
   else {
-    for (var s of classList[curr.classIdx + 1].sections) {
-      if (!conflict(indexToSection(classList, curr), s) &&
+    for (var s = {classIdx: curr.classIdx + 1, sectionIdx: 0};
+         s.sectionIdx < classList[curr.classIdx + 1].sections.length;
+         s.sectionIdx++) {
+      var sectionToCheck = indexToSection(classList, s);
+      if (!conflict(indexToSection(classList, curr), sectionToCheck) &&
           path.every(function pathTestConf (element) {
-             return !conflict(indexToSection(classList, element), s)
+             return !conflict(indexToSection(classList, element),
+                              sectionToCheck);
           })) {
         path.push(curr);
         findSchedules(path, s, classList, foundpaths);
