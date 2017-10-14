@@ -6,8 +6,8 @@ everything:
 [
   fullCourse:
   [
-    course_num:   String,
-    course_title: String,
+    courseNum:   String,
+    courseTitle: String,
     section:
     [
       {
