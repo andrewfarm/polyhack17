@@ -26,3 +26,12 @@ function findSchedules(path, curr, iteration, classList, foundpaths) {
     }
   }
 }
+
+
+function fullOnFilter (listOfFullClasses) {
+  for (classess in listOfFullClasses) {
+    for (curr in classess.schedules) {
+      findSchedules([], curr, 0, listOfFullClasses, [])
+    }
+  }
+}
