@@ -1,0 +1,20 @@
+@purple: #c992c2;
+@yellow: #f9ec6e;
+@red: #fba3a3;
+@green: #a2f994;
+
+.taken1 {
+  background-color: @purple;
+}
+
+.taken2 {
+  background-color: @yellow;
+  }
+
+.taken3 {
+  background-color: @red;
+}
+
+.taken4 {
+  background-color: @green;
+}
