@@ -14,7 +14,7 @@ function mutate (jsonObj) {
         var section = {
           instructor: "",
           type: clSection.comp_desc,
-          schedules:  []
+          schedules: {}
         };
         for (var clLocation of clComponent.locations) {
           var name = clLocation.instructor.replace(
@@ -28,11 +28,10 @@ function mutate (jsonObj) {
             var clEnd   = clMeetings.meet_end_min;
             for (var clDay of clMeetings.days) {
               var sched = {
-                day:   clDay,
                 start: clStart,
                 end:   clEnd
               };
-              section.schedules.push(sched);
+              section.schedules[clDay] = sched;
             }
           }
         }
