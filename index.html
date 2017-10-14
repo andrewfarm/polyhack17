@@ -173,21 +173,27 @@
                 }
                 console.log("Classes to schedule", classesToSchedule);
                 console.log("Running...");
+                var combos = 0;
                 if (classesToSchedule.length > 0) {
                         for (var s of classesToSchedule[0].sections) {
-                                findSchedules([], s, 0, classesToSchedule, foundpaths);
+                                combos += findSchedules([], s, 0,
+                                        classesToSchedule, foundpaths);
                         }
                 }
                 console.log("Done.");
                 console.log("foundpaths", foundpaths);
                 
-                $("link").remove();
-                $("style").remove();
-                $("body").html("<ul id=\"sched-list\"></ul>");
-                for (var i = 1; i <= foundpaths.length; i++) {
-                        $("#sched-list").append(
-                                "<li onclick=\"displaySchedule(" + i +
-                                ")\">Schedule " + i + "</li>");
+                if (foundpaths.length === 0) {
+                        $("body").html("Sorry, no schedules were found with no conflicts.");
+                } else {
+                        $("link").remove();
+                        $("style").remove();
+                        $("body").html(combos + " schedules found.<ul id=\"sched-list\"></ul>");
+                        for (var i = 1; i <= foundpaths.length; i++) {
+                                $("#sched-list").append(
+                                        "<li onclick=\"displaySchedule(" + i +
+                                        ")\">Schedule " + i + "</li>");
+                        }
                 }
         }
 

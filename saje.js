@@ -19,8 +19,8 @@ var sortClasses = function(classList) {
 //console.log("sorted classes", sortClasses(classList));
 
 var timesConflict = function(time1, time2) {
-        return ((time1.start > time2.start) && (time1.start < time2.end)) ||
-               ((time1.start < time2.start) && (time2.start < time1.end));
+        return ((time1.start >= time2.start) && (time1.start < time2.end)) ||
+               ((time1.start <= time2.start) && (time2.start < time1.end));
 };
 
 var conflict = function(section1, section2) {

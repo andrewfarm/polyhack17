@@ -4,24 +4,37 @@
 //classList :: [{[{Section}]}]
 //foundpaths :: [[{Section}]]
 function findSchedules(path, curr, iteration, classList, foundpaths) {
+  if (isEmptyObject(curr.schedules)) return 0;
   //If you reach the end, you won!
   if(iteration === classList.length - 1) {
-    path.push(curr);
-    foundpaths.push(path);
+    var newpath = path.slice();
+    newpath.push(curr);
+    foundpaths.push(newpath);
+    return 1;
   }
   //Otherwise you do work
   else {
+    var combos = 0;
     for (var s of classList[iteration + 1].sections) {
-      if (!conflict(curr, s) &&
-          path.every(function (element) {
+      if (!isEmptyObject(curr.schedules) &&
+          !conflict(curr, s) &&
+          path.every(function(element) {
             return (!conflict(element, s));
           })) {
             var newpath = path.slice();
             newpath.push(curr);
-            findSchedules(newpath, s, iteration + 1, classList, foundpaths);
+            combos += findSchedules(newpath, s, iteration + 1, classList, foundpaths);
       }
     }
+    return combos;
   }
+}
+
+function isEmptyObject(obj) {
+        for (var name in obj) {
+                return false;
+        }
+        return true;
 }
 
 

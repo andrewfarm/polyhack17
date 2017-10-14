@@ -449,7 +449,7 @@
                                         var time = section.schedules[day];
                                         var startRow = Math.floor((time.start - 480) / 15);
                                         var endRow = Math.ceil((time.end - 480) / 15);
-                                        for (var row = startRow; row <= endRow; row++) {
+                                        for (var row = startRow; row < endRow; row++) {
                                                 var col = ((row % 4) == 0) ? dayIdx + 2 : dayIdx + 1;
                                                 $("tbody tr:eq(" + row + ") :nth-child(" + col + ")")
                                                         .addClass("taken" + (color + 1))
