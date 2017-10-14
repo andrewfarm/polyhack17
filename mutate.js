@@ -12,6 +12,7 @@ function mutate (jsonObj) {
       for (var clComponent of clSection.components) {
         //THIS IS THE CUTOFF FOR A SECTION
         var section = {
+          course: fullCourse,
           instructor: "",
           type: clSection.comp_desc,
           schedules: {}

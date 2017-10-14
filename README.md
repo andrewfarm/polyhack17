@@ -12,6 +12,7 @@ everything:
     sections:
     [
       {
+        course:     fullCourse,
         instructor: String,
         type:       String,
         schedules:
