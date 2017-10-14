@@ -5,7 +5,7 @@ https://siscs.uit.tufts.edu/psc/csprod/EMPLOYEE/HRMS/s/WEBLIB_CLS_SRCH.ISCRIPT1.
 everything:
 [
   fullCourse:
-  [
+  {
     courseNum:   String,
     courseTitle: String,
 
@@ -27,5 +27,5 @@ everything:
         }  
       }
     ]
-  ]
+  }
 ]
