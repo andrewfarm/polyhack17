@@ -14,7 +14,7 @@ function findSchedules(path, curr, classList, foundpaths) {
     foundpaths.push(path);
   }
   else {
-    for (var s of classList[curr.classIdx + 1].section) {
+    for (var s of classList[curr.classIdx + 1].sections) {
       if (!conflict(indexToSection(classList, curr), s) &&
           path.every(function pathTestConf (element) {
              return !conflict(indexToSection(classList, element), s)
