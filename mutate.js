@@ -3,18 +3,17 @@
 function mutate (jsonObj) {
   var total = [];
   for (var clResult of jsonObj.searchResults) {
-    var fullCourse = {
-      courseTitle: clResult.course_title,
-      courseNum:   clResult.course_num,
-      sections:    []
-    };
     for (var clSection of clResult.sections) {
+      var fullCourse = {
+        courseTitle: clResult.course_title + " " + clSection.comp_desc,
+        courseNum:   clResult.course_num,
+        sections:    []
+      };
       for (var clComponent of clSection.components) {
         //THIS IS THE CUTOFF FOR A SECTION
         var section = {
           course: fullCourse,
           instructor: "",
-          type: clSection.comp_desc,
           schedules: {}
         };
         for (var clLocation of clComponent.locations) {
@@ -38,10 +37,8 @@ function mutate (jsonObj) {
         }
         fullCourse.sections.push(section);
       }
+      total.push(fullCourse);
     }
-    total.push(fullCourse);
   }
   return total;
 }
-
-//Comments are for pussies
