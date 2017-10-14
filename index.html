@@ -186,8 +186,8 @@
                         $("body").html(combos + " schedules found.<ul id=\"sched-list\"></ul>");
                         for (var i = 1; i <= foundpaths.length; i++) {
                                 $("#sched-list").append(
-                                        "<li onclick=\"displaySchedule(" + i +
-                                        ")\">Schedule " + i + "</li>");
+                                        "<li style=\"cursor: pointer;\" onclick=\"displaySchedule(" +
+                                        i + ")\">Schedule " + i + "</li>");
                         }
                 }
         }
