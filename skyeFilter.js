@@ -14,14 +14,11 @@ function findSchedules(path, curr, iteration, classList, foundpaths) {
     for (var s of classList[iteration + 1].sections) {
       if (!conflict(curr, s) &&
           path.every(function (element) {
-                     console.log("Checking:");
-                     console.log("element", element);
-                     console.log("s", s);
-                     console.log("!conflict(element, s)", !conflict(element, s));
             return (!conflict(element, s));
           })) {
-            path.push(curr);
-            findSchedules(path, s, iteration + 1, classList, foundpaths);
+            var newpath = path.slice();
+            newpath.push(curr);
+            findSchedules(newpath, s, iteration + 1, classList, foundpaths);
       }
     }
   }
@@ -29,8 +26,8 @@ function findSchedules(path, curr, iteration, classList, foundpaths) {
 
 
 function fullOnFilter (listOfFullClasses) {
-  for (classess in listOfFullClasses) {
-    for (curr in classess.schedules) {
+  for (classes in listOfFullClasses) {
+    for (curr in clasess.schedules) {
       findSchedules([], curr, 0, listOfFullClasses, [])
     }
   }

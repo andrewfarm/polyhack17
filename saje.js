@@ -47,11 +47,14 @@ for (var i = 0; i < 10; i++) {
 }
 
 var foundpaths = [];
-console.log("Running...");
 var classesToSchedule = [
-         classList[5], classList[95], classList[600], classList[1240]
+         classList[1900], classList[1920], classList[1940], classList[1960],
+         classList[1970], classList[1972]
 ];
-findSchedules([], classesToSchedule[0].sections[0], 0, classesToSchedule,
-      foundpaths);
+console.log("Classes to schedule", classesToSchedule);
+console.log("Running...");
+for (var s of classesToSchedule[0].sections) {
+        findSchedules([], s, 0, classesToSchedule, foundpaths);
+}
 console.log("Done.");
 console.log("foundpaths", foundpaths);
