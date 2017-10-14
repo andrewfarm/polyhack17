@@ -1,5 +1,6 @@
 <head>
 	<title>SAJE Schedule Compiler</title>
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
 	<style>/*CSS portion*/
         
     body{
@@ -97,39 +98,55 @@
 	<p><p>Please input your desired classes, one in each box.</p>
 	
 	
-	<div class="wrap">   <div class="searchbox"><div id ="search1">
-      <input type="text" class="searchTerm" placeholder="First Class">
+<div class="wrap">
+<div class="searchbox">
+<div class="ui-widget">
+      <input id ="search1" type="text" class="searchTerm" placeholder="First Class">
 </div>
   
  
 
-<div id="search2">
+<div class="ui-widget">
 
-      <input type="text" class="searchTerm" placeholder="Second Class">
+      <input id="search2" type="text" class="searchTerm" placeholder="Second Class">
 </div>
 
    
-<div id="search3">
+<div class="ui-widget">
 
-      <input type="text" class="searchTerm" placeholder="Third Class">
+      <input id="search3" type="text" class="searchTerm" placeholder="Third Class">
 
    </div>
    
-<div id="search4">
+<div class="ui-widget">
 
-      <input type="text" class="searchTerm" placeholder="Fourth Class">
+      <input id="search4" type="text" class="searchTerm" placeholder="Fourth Class">
 
    </div>
 
-<div id="search5">
+<div class="ui-widget">
 
-      <input type="text" class="searchTerm" placeholder="Fifth Class">
+      <input id="search5" type="text" class="searchTerm" placeholder="Fifth Class">
 
    </div>
 </div>
 
 </div>
 
-
+<script src="jquery-3.1.0.min.js"></script>
+<script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script src="classes2017f.js"></script>
+<script src="saje.js"></script>
+<script src="mutate.js"></script>
+<script type="text/javascript">
+        var classList = sortClasses(mutate(classesLong));
+        var courseNames = [];
+        for (var course of classList) {
+                courseNames.push(course.courseTitle);
+        }
+        $(".searchTerm").autocomplete({
+                source: courseNames
+        });
+</script>
 
 </body>
