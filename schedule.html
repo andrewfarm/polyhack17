@@ -37,6 +37,151 @@
                 </thead>
                 <tbody>
                         <tr>
+                                <td class="hour" rowspan="4"><span>8:00</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td class="hour" rowspan="4"><span>9:00</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td class="hour" rowspan="4"><span>10:00</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td class="hour" rowspan="4"><span>11:00</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td class="hour" rowspan="4"><span>12:00</span></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                        </tr>
+                        <tr>
                                 <td class="hour" rowspan="4"><span>1:00</span></td>
                                 <td></td>
                                 <td></td>
@@ -279,6 +424,40 @@
                         if (s == null) return;
                         var schedule = JSON.parse(s);
                         console.log("schedule", schedule);
+                        
+                        var color = 0;
+                        for (var section of schedule) {
+                                for (var day in section.schedules) {
+                                        var dayIdx = 0;
+                                        switch (day) {
+                                                case "Mo":
+                                                        dayIdx = 0;
+                                                        break;
+                                                case "Tu":
+                                                        dayIdx = 1;
+                                                        break;
+                                                case "We":
+                                                        dayIdx = 2;
+                                                        break;
+                                                case "Th":
+                                                        dayIdx = 3;
+                                                        break;
+                                                case "Fr":
+                                                        dayIdx = 4;
+                                                        break;
+                                        }
+                                        var time = section.schedules[day];
+                                        var startRow = Math.floor((time.start - 480) / 15);
+                                        var endRow = Math.ceil((time.end - 480) / 15);
+                                        for (var row = startRow; row <= endRow; row++) {
+                                                var col = ((row % 4) == 0) ? dayIdx + 2 : dayIdx + 1;
+                                                $("tbody tr:eq(" + row + ") :nth-child(" + col + ")")
+                                                        .addClass("taken" + (color + 1))
+                                                        .html(section.course.courseTitle);
+                                        }
+                                }
+                                color = (color + 1) % 4;
+                        }
                 };
         
                 $(document).ready(init);
