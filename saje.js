@@ -11,4 +11,8 @@ var compareNumSections = function(class1, class2) {
         return compare(class1.sections.length, class2.sections.length);
 };
 
-console.log("sorted classes", mutate(classesLong).sort(compareNumSections));
+var sortClasses = function(classList) {
+  return classList.sort(compareNumSections);
+};
+
+console.log("sorted classes", sortClasses(mutate(classesLong));
