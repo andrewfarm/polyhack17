@@ -453,10 +453,16 @@
                                                 var col = ((row % 4) == 0) ? dayIdx + 2 : dayIdx + 1;
                                                 var $cell = $("tbody tr:eq(" + row + ") :nth-child(" + col + ")");
                                                 $cell.addClass("taken" + (color + 1))
-                                                if (row == startRow) $cell.addClass("taken-top");
-                                                else if (row == endRow - 1) $cell.addClass("taken-bottom");
-                                                else $cell.addClass("taken-middle");
-                                                $cell.html(section.course.courseTitle);
+                                                if (row == Math.floor((endRow + startRow) / 2)) {
+                                                        $cell.html(section.course.courseTitle);
+                                                }
+                                                if (row == startRow) {
+                                                        $cell.addClass("taken-top");
+                                                } else if (row == endRow - 1) {
+                                                        $cell.addClass("taken-bottom");
+                                                } else {
+                                                        $cell.addClass("taken-middle");
+                                                }
                                         }
                                 }
                                 color = (color + 1) % 4;
